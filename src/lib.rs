@@ -38,6 +38,10 @@ pub fn setup(app: &mut App, gfx: &mut Graphics) -> State {
         .create_font(include_bytes!("ShareTechMono-Regular.ttf"))
         .unwrap();
 
+    // BUG: set_size not being applied directly when not in html page, making width and height wrong
+    // println!("{} {}", app.window().width(), app.window().height());
+    println!("{} {}", gfx.size().0 , gfx.size().1 );
+
     State {
         font,
         time: 0.0,
@@ -57,14 +61,12 @@ pub fn event(app: &mut App, state: &mut State, event: Event) {
         Event::KeyDown { key } if key == KeyCode::Back => {
             state.console.prompt.pop();
         }
-
-        // Event::MouseMove { x, y } => {
-        //     state.previous_mouse_pos = (x, y);
-        // }
-        Event::MouseMove { x, y } if app.mouse.is_down(MouseButton::Left) => {
-            state
-                .manual_board
-                .mouse_drag((x, y), state.previous_mouse_pos);
+        Event::MouseMove { x, y } => {
+            if app.mouse.is_down(MouseButton::Left) {
+                state
+                    .manual_board
+                    .mouse_drag((x, y), state.previous_mouse_pos);
+            }
             state.previous_mouse_pos = (x, y);
         }
         _ => {}
@@ -84,6 +86,7 @@ pub fn draw(gfx: &mut Graphics, state: &mut State) {
     draw.clear(Color::WHITE);
 
     let (width, height) = (gfx.size().0 as f32, gfx.size().1 as f32);
+
 
     // manual background
     draw.rect((width / 2.0, height * 0.25), (width / 2.0, height * 0.75))

@@ -1,3 +1,5 @@
+use notan::{input::mouse, log::debug};
+
 fn point_aabb(pos: (i32, i32), rect_pos: (i32, i32), rect_size: (i32, i32)) -> bool {
     return rect_pos.0 < pos.0
         && pos.0 < rect_pos.0 + rect_size.0
@@ -38,6 +40,9 @@ impl ManualBoard {
         let pos: (i32, i32) = (window_width / 2, ((window_height as f32) * 0.25) as i32);
         let size: (i32, i32) = (window_width / 2, ((window_height as f32) * 0.75) as i32);
 
+        println!("{} {}", window_width, window_height);
+        // println!("{} {}, {} {}", pos.0, pos.1, size.0, size.1);
+
         ManualBoard {
             pos,
             size,
@@ -55,9 +60,14 @@ impl ManualBoard {
     }
 
     pub fn mouse_drag(&mut self, mouse_pos: (i32, i32), previous_mouse_pos: (i32, i32)) {
-        // move element in front of the list (will be first to rendered)
+        if !point_aabb(mouse_pos, self.pos, self.size) { return };
+
+        // println!("{} {}", mouse_pos.0, mouse_pos.1);
+
+
         let mut is_dragged = false;
 
+        // move element in front of the list (will be first to rendered)
         for (i, manual) in self.manuals.iter().enumerate() {
             if point_aabb(previous_mouse_pos, manual.pos, manual.size) {
                 self.manuals.swap(0, i);
@@ -77,3 +87,5 @@ impl ManualBoard {
         }
     }
 }
+//
+
