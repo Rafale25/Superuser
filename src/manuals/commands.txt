@@ -1,0 +1,7 @@
+Shell commands manual
+
+cat: print file's content
+ls: list directory contents
+ssh [ip]: login into remote machine
+dc: disconnect from remote
+print: print a manual file to paper

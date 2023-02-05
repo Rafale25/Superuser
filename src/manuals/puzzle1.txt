@@ -1,0 +1,16 @@
+2 words
+    If there is 2 blip, write R1
+    If there is 1 blop and no number, write R2
+    If there is 1 number and no blap, write R3
+    Otherwise, write R4  
+3 words
+    if there is exactly 2 blep, write R1
+    Otherwise, if the last word is blip and there is no number, write R2
+    Otherwise, if there is a number and exactly 1 blip, write R3
+    Otherwise, if there is a number and 2 blap, write R4
+    Otherwise, write R5
+4 words
+    if there is a number, write R1
+    Otherwise, if there is 1 blap and 1 blip, write R2
+    Otherwise, if there is no blap and no number, write R3
+    Otherwise, write R4

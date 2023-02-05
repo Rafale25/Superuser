@@ -1,0 +1,27 @@
+{
+    "puzzle1": {
+        "manual_name": "puzzle1",
+        "answers" : [
+            ["blip blip", "R1"],
+            ["blop blip", "R2"],
+            ["blip bl5p", "R3"],
+            ["blap bl5p", "R4"],
+            ["blep blap", "R4"],
+            
+            ["blep blop blep", "R1"],
+            ["blip bl9p blip", "R5"],
+            ["blip blop blip", "R2"], 
+            ["blip blep bl8p", "R3"],
+            ["bl2p bl3p blop", "R5"],
+            
+            ["blip blip blop blop", "R3"],
+            ["blep bl7p blop blip", "R1"],
+            ["blep blap blop blip", "R2"], 
+            ["blep blap bl1p blap", "R1"],
+            ["blop blop blap blop", "R4"]
+        ]
+
+    }
+
+
+}

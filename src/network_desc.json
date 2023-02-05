@@ -1,0 +1,21 @@
+{
+    "hosts": {
+        "127.0.0.1": {
+            "hacked": true,
+            "position": [50.0, 10.0],
+            "puzzle_kind": "",
+            "fs": {
+                "hack.manual": {"Manual": {"id": "hack"}},
+                "puzzle.manual": {"Manual": {"id": "puzzle1"}}
+            }
+        },
+        "19": {
+            "hacked": false,
+            "position": [50.0, 50.0],
+            "puzzle_kind": "puzzle1",
+            "fs": {
+                "la.manual": {"Manual": {"id": "lala"}}
+            }
+        }
+    }
+}

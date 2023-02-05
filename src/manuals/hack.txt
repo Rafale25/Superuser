@@ -1,0 +1,3 @@
+Secret hack manual
+
+hack [ip]: hack a computer
