@@ -161,6 +161,9 @@ impl State {
             ConsoleState::AwaitingAnswer { answer, host } => {
                 if answer == &self.console.prompt {
                     self.network.hosts.get_mut(host).unwrap().hacked = true;
+                    if self.network.hosts.values().all(|x| x.hacked) {
+                        self.console.add_line("Congrats, you win".to_string());
+                    }
                 } else {
                     self.console.add_line("Hacking attempt failed".to_string());
                 }
